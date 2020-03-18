@@ -1,22 +1,29 @@
-A library for Dart developers.
+A plug and play [Bitsocket](https://bitsocket.network/#/) for Flutter Web.
 
-Created from templates made available by Stagehand under a BSD-style
-[license](https://github.com/dart-lang/stagehand/blob/master/LICENSE).
+
 
 ## Usage
 
-A simple usage example:
+Connect to Bitsocket:
 
-```dart
+```
 import 'package:bitsocket_connect/bitsocket_connect.dart';
+var query = {
+    'v': 3,
+    'q': {
+      'find': {},
+      'project': {"tx.h": 1}
+    }
+  };
+  
+  void process(tx){
+   print(tx);
+  }
 
-main() {
-  var awesome = new Awesome();
-}
+var bitsocket=Bitsocket();
+bitsocket.connect(query,process);
 ```
 
-## Features and bugs
+Close the connection:
+`bitsocket.close()`
 
-Please file feature requests and bugs at the [issue tracker][tracker].
-
-[tracker]: http://example.com/issues/replaceme
